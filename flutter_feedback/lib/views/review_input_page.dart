@@ -3,7 +3,10 @@ import 'package:hive/hive.dart';
 import 'review_list_page.dart';
 
 class ReviewInputPage extends StatefulWidget {
+  const ReviewInputPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ReviewInputPageState createState() => _ReviewInputPageState();
 }
 
@@ -34,10 +37,10 @@ class _ReviewInputPageState extends State<ReviewInputPage> {
       _emailController.clear();
       _reviewController.clear();
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Review Submitted!')));
+          .showSnackBar(const SnackBar(content: Text('Review Submitted!')));
     } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('All fields are required!')));
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('All fields are required!')));
     }
   }
 
@@ -52,34 +55,35 @@ class _ReviewInputPageState extends State<ReviewInputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Submit a Review'),
+        title: const Text('Submit a Review'),
       ),
+      drawer: const CustomDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _nameController,
-              decoration: InputDecoration(labelText: 'Name'),
+              decoration: const InputDecoration(labelText: 'Name'),
             ),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
             TextField(
               controller: _reviewController,
-              decoration: InputDecoration(labelText: 'Review'),
+              decoration: const InputDecoration(labelText: 'Review'),
               maxLines: 5,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _submitReview,
-              child: Text('Submit Review'),
+              child: const Text('Submit Review'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _viewReviews,
-              child: Text('View All Reviews'),
+              child: const Text('View All Reviews'),
             ),
           ],
         ),
