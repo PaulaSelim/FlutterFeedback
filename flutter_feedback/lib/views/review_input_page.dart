@@ -47,7 +47,7 @@ class _ReviewInputPageState extends State<ReviewInputPage> {
   void _viewReviews() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ReviewListPage()),
+      MaterialPageRoute(builder: (context) => const ReviewListPage()),
     );
   }
 
